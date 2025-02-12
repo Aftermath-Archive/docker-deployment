@@ -1,0 +1,18 @@
+services:
+  backend:
+    image: xdaybreakerx/aftermath-archive-backend
+    env_file:
+      - .backend.env
+    ports:
+      - "4000:4000" # Map backend port from container to host
+    restart: always
+
+  frontend:
+    image: xdaybreakerx/aftermath-archive-frontend
+    env_file:
+      - .frontend.env
+    ports:
+      - "80:80" # Serve frontend on port 80
+    restart: always
+    depends_on:
+      - backend # Ensure backend starts first
