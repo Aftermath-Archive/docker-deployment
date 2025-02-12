@@ -1,0 +1,35 @@
+services:
+  backend:
+    image: xdaybreakerx/aftermath-archive-backend
+    env_file:
+      - .backend.env
+    ports:
+      - "4000:4000"  # Map backend port from container to host
+    restart: always
+    depends_on:
+      - mongodb  # Ensure MongoDB starts before backend
+
+  frontend:
+    image: xdaybreakerx/aftermath-archive-frontend
+    env_file:
+      - .frontend.env
+    ports:
+      - "80:80"  # Serve frontend on port 80
+    restart: always
+    depends_on:
+      - backend  # Ensure backend is up before frontend
+
+  mongodb:
+    image: mongo:6
+    container_name: aftermath-mongo
+    restart: always
+    ports:
+      - "27017:27017"  # Map MongoDB default port
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo-data:/data/db  # Persist MongoDB data
+
+volumes:
+  mongo-data:
