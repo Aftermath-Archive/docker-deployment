@@ -32,8 +32,8 @@ This repository provides Docker-based deployment configurations for the Aftermat
     ```
 2. Create the necessary .env files based on the examples:
     ```
-    nano .backend.env
-    nano .frontend.env
+    cp .backend.env.example .backend.env
+    cp .frontend.env.example .frontend.env
     ```
 3. Run the deployment:
     ```
@@ -57,8 +57,8 @@ This repository provides Docker-based deployment configurations for the Aftermat
     ```
 2. Create the necessary .env files based on the examples:
     ```
-    nano .backend.env
-    nano .frontend.env
+    cp .backend.env.example .backend.env
+    cp .frontend.env.example .frontend.env
     ```
 3. Run the deployment:
     ```
@@ -82,6 +82,8 @@ docker compose down
 ```
 
 For the MongoDB version, you may also want to remove the volume:
+
+#### Please be careful with this step as it **deletes all stored data**. 
 
 ```
 docker compose down -v
