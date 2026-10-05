@@ -1,5 +1,18 @@
 # Aftermath Archive - Deployment Guide
 
+## Aftermath 2.0 migration
+
+The canonical successor is [Aftermath 2.0](https://github.com/xdaybreakerx/aftermath-2.0).
+This repository's main history was imported into
+[`deploy/docker`](https://github.com/xdaybreakerx/aftermath-2.0/tree/main/deploy/docker)
+with original commit ancestry preserved. The
+[history import PR](https://github.com/xdaybreakerx/aftermath-2.0/pull/1)
+also preserves historical branches and pull-request heads.
+
+Live cutover is not yet verified. This repository remains a historical reference
+and rollback target during migration. See the
+[2.0 README](https://github.com/xdaybreakerx/aftermath-2.0#readme) for the monorepo layout and source links.
+
 This repository provides Docker-based deployment configurations for the Aftermath Archive application, including both a standalone setup, and a setup with MongoDB included.
 
 ## Repository Structure
